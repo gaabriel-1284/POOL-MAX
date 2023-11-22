@@ -410,65 +410,6 @@
     }
 }
 
-@media (max-width: 850px) {
-    .mae {
-        max-width: 100%;
-        display: none;
-    }
-
-    .infos{
-        display: none;
-    }
-
-    .cruz {
-        margin-left: -95px;
-    }
-
-    .cardd {
-        width: 280px;
-    }
-
-    .agrupa-card-1{
-        gap: 40px;
-    }
-
-
-    .rodape {
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        height: 20vh;
-        background-color: #004586;
-    }
-
-
-    .agrupa-info {
-        display: flex;
-        flex-direction: row;
-        max-width: 100%;
-
-    }
-
-    .agrupa-info>div {
-        margin: 5px;
-    }
-
-
-    .infos {
-        display: flex;
-        flex-direction: row;
-        width: 150px;
-    }
-
-    .bugado {
-        width: 850px;
-    }
-
-    .grupo-image>img {
-        cursor: pointer;
-    }
-}
-
 
 
 

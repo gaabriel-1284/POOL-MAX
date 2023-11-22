@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import storage from 'local-storage';
 import { useEffect } from 'react';
 import { confirmAlert } from 'react-confirm-alert'; 
+import { URLRota } from '../../constants';
 
 
 
@@ -57,32 +58,31 @@ let navigate = useNavigate()
     try {
         
     
-        let url = `http://localhost:5001/cadastroproduto`
+        let url = URLRota + `cadastroproduto`
 
         const produto = {
-            nome: nome ,
+            nome: nome,
             categoria: categoria,
-            preco: valor ,
+            preco: valor,
             estoque: quantidade,
             imagem: imagem
         }
 
+        console.log(produto)
+
         let r = await axios.post(url, produto)
            toast.dark('CADASTRADO COM SUCESSO !')
 
-               setIdd('')    
+        setIdd('')    
         setNome('')
         setCategoria('')
         setValor('')
         setQuantidade('')
         setImagem('') 
 
-ConsultarProduto()
+        // ConsultarProduto(produto.categoria)
 
         return r.status;
-
-   
-      
 
     } catch (error) {
         
@@ -92,14 +92,14 @@ ConsultarProduto()
 
 //////////////////////////////////////////////////////
 
-    async function ConsultarProduto() {
+    async function ConsultarProduto(id) {
 
-        let url = `http://localhost:5001/buscarporcategoria/${buscar}`
+        let url = `http://localhost:5042/buscarporcategoria/${id}`
       
         let r = await axios.get(url)
       
         setLista(r.data)
-       }
+    }
 ////////////////////////////////////////////////////////////
 
 
@@ -117,7 +117,7 @@ async function DeletarProduto(id , nome) {
                     label:'Sim',
                     onClick: async () => {
 
-                        let url = `http://localhost:5001/produto/${id}`
+                        let url = `http://localhost:5042/produto/${id}`
 
                         let r = await axios.delete(url)
 
@@ -156,7 +156,7 @@ async function AlterarProduto () {
 
    
 
-    let url = `http://localhost:5001/alterarProduto/${idd}`
+    let url = `http://localhost:5042/alterarProduto/${idd}`
 
     const produtoo = {
         produto: nome ,
